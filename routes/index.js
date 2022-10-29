@@ -1,12 +1,18 @@
-const express=require("express");
-const {getUserData}= require("../controllers");
-const {updateUserAdress}= require("../controllers");
+const express = require('express');
+const{
+    getData,
+    updateData,
+    createUser,
+    deleteUser} = require ('../controllers');
 
-const router=express.Router();
- 
-router.get("/account",getUserData);
-router.put("/account",updateUserAdress);
+    const router = express.Router();
 
-module.exports={
-    router
-}
+    router.get('/get-user-data/:id', getData);
+    router.post('/create-user', createUser);
+    router.put('/update-user-adress/:id', updateData);
+    router.delete('/delete-user/:id', deleteUser);
+
+
+    module.exports = {
+        router
+    }
